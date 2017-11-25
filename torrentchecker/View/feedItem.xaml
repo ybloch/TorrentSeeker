@@ -1,0 +1,37 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TorrentChecker.View"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="TorrentChecker.View.feedItem"
+              HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
+             mc:Ignorable="d" Height="57.399" BorderThickness="1" Width="258.014">
+    <!--Width="216"-->
+    <Grid MouseLeftButtonDown="Grid_MouseDown" HorizontalAlignment="Stretch" MouseRightButtonDown="Grid_MouseRightButtonDown">
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="remove" Click="MenuItem_Click"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <Grid HorizontalAlignment="Left"  Width="57" MinWidth="57" >
+            <Ellipse MouseLeftButtonDown="Ellipse_MouseLeftButtonDown" >
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="circleImage" ImageSource="/TorrentChecker;component/images/movieIcon2.png"  />
+                </Ellipse.Fill>
+            </Ellipse>
+        </Grid>
+        <Grid Margin="58,0,0,22.131" HorizontalAlignment="Stretch" >
+            <Label x:Name="label" FontFamily="Arial Unicode MS" Foreground="Black" Background="{x:Null}" Content="movie name" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseLeftButtonDown="label_MouseLeftButtonDown" Margin="0,2,0,2.869" Width="198"/>
+        </Grid>
+        <Grid Height="22.131" VerticalAlignment="Bottom" Margin="104,0,124.014,0">
+            <Image x:Name="rightArrow" Source="/TorrentChecker;component/images/IMDB_logo.jpg"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left"  Width="37" Margin="62,0,0,0" Height="22.131" VerticalAlignment="Bottom">
+            <Image x:Name="torrentLink" Source="/TorrentChecker;component/images/TorrentSeekerIcon2.ico" MouseLeftButtonDown="torrentLink_MouseLeftButtonDown"/>
+            <Label x:Name="torrentLinkString" Visibility="Collapsed"></Label>
+        </Grid>
+        <!--<ed:BlockArrow x:Name="rightArrow" Fill="#FF9DE69D" Orientation="Right" Stroke="Black" Margin="7,7,6,8" Grid.Column="4" Grid.Row="1"/>-->
+
+    </Grid>
+</UserControl>

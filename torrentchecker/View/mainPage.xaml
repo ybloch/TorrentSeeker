@@ -1,0 +1,66 @@
+﻿<Page x:Class="TorrentChecker.View.mainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TorrentChecker.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600"
+    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+      Title="mainPage">
+    <!--<Page.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <EventSetter Event="KeyDown" Handler="TextBox_KeyDown"/>
+        </Style>
+    </Page.Resources>-->
+    <Grid  Background="{StaticResource appBackground}">
+        <Grid  >
+            <Grid x:Name="waitingAnimGrid" Height="111.846" Width="467" Visibility="Collapsed">
+                <local:WaitingAnimation x:Name="waitingAnim" d:LayoutOverrides="Height" Visibility="Hidden"/>
+            </Grid>
+        </Grid>
+        <Grid Margin="10" x:Name="gridAllPage" >
+            <Grid Margin="0,59.167,0,40.154" Panel.ZIndex="1">
+
+                <ListBox x:Name="listView" AllowDrop="True" DragOver="listView_DragOver" DragDrop.Drop="listView_Drop" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" Background="{x:Null}" BorderThickness="0">
+                </ListBox>
+            </Grid>
+
+            <Grid Height="25.567" VerticalAlignment="Top" Panel.ZIndex="2">
+                <Grid HorizontalAlignment="Left" Width="40" Margin="10,0,0,0" >
+                    <Image x:Name="label"    HorizontalAlignment="Center" VerticalAlignment="Center" Source="/TorrentChecker;component/images/magnifying.png"  RenderTransformOrigin="0.5,0.5" >
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Grid>
+                <Grid Margin="55,0,52.667,0" Panel.ZIndex="3">
+                    <Grid >
+                        <TextBox x:Name="textBox" TextWrapping="Wrap" Background="{x:Null}" FontFamily="Arial Unicode MS" FontSize="18" BorderBrush="Black" BorderThickness="0,0,0,2" PreviewKeyDown="TextBox_KeyDown" />
+                        <ListBox x:Name="lbSuggestion" SelectionChanged="lbSuggestion_SelectionChanged" Visibility="Collapsed" Background="White" Panel.ZIndex="10" BorderBrush="Black"  BorderThickness="1,1,1,1" Margin="0,26,0,-54" Keyboard.KeyDown="lbSuggestion_PreviewKeyDown" PreviewKeyDown="lbSuggestion_PreviewKeyDown" MouseDoubleClick="lbSuggestion_MouseDown"/>
+                    </Grid>
+                </Grid>
+                <Grid HorizontalAlignment="Right" Width="33.067" Margin="0,0,19.6,0">
+                    <Button x:Name="addButton" Click="addButton_Click" BorderBrush="{x:Null}" Background="{x:Null}" >
+                        <Button.Content>
+                            <Image Source="/TorrentChecker;component/images/add-icon.png" />
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Grid HorizontalAlignment="Right" Height="40.154" VerticalAlignment="Bottom" Width="43">
+                <Button x:Name="checkList" Style="{DynamicResource DownloadButton}" FontFamily="Arial Unicode MS" Background="{StaticResource appGreen}" Click="checkList_Click" FontSize="16" FontWeight="Bold" >
+                    <Button.Content>
+                        <Image Source="/TorrentChecker;component/images/download.png"/>
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>
